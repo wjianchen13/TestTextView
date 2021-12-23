@@ -11,12 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test"
-        android:background="#ff00ff00"
         android:textColor="@color/colorPrimary"
         android:onClick="onTest"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:textColor="@color/colorPrimary"
+        android:onClick="onTest1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_test" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

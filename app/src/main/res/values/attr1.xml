@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ArcProgressView">
+        <attr name="arcBackgroundColor" format="color" />
+        <attr name="arcProgressColor" format="color" />
+        <attr name="arcSubTitleColor" format="color" />
+        <attr name="arcStrokeWidth" format="dimension" />
+        <attr name="arcTitleTextSize" format="dimension" />
+        <attr name="arcSubTitleTextSize" format="dimension" />
+        <attr name="arcProgress" format="float" />
+        <attr name="arcTitleNumber" format="integer" />
+    </declare-styleable>
+</resources>

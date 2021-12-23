@@ -7682,7 +7682,13 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     /**
      * The width passed in is now the desired layout width,
      * not the full view width with padding.
-     * {@hide}
+     * wantWidth 需要的宽度
+     * hintWidth hint需要的宽度
+     * boring 单行布局
+     * hintBoring hint单行布局
+     * ellipsisWidth 省略号宽度
+     * bringIntoView 
+     * 
      */
     protected void makeNewLayout(int wantWidth, int hintWidth,
                                  BoringLayout.Metrics boring,

@@ -15,6 +15,8 @@
  */
 
 package com.example.testtextview.textview;
+import android.text.Spanned;
+import android.text.style.ParagraphStyle;
 import android.util.ArraySet;
 
 
@@ -44,7 +46,69 @@ public class ArrayUtils {
 //        return (int[])VMRuntime.getRuntime().newUnpaddedArray(int.class, minLen);
         return new int[minLen];
     }
-    
+
+    public static float[] newUnpaddedFloatArray(int minLen) {
+//        return (float[])VMRuntime.getRuntime().newUnpaddedArray(float.class, minLen);
+        return new float[minLen];
+    }
+
+    public static char[] newUnpaddedCharArray(int minLen) {
+//        return (char[])VMRuntime.getRuntime().newUnpaddedArray(char.class, minLen);
+        return new char[minLen];
+    }
+
+    public static byte[] newUnpaddedByteArray(int minLen) {
+//        return (byte[])VMRuntime.getRuntime().newUnpaddedArray(byte.class, minLen);
+        return new byte[minLen];
+    }
+
+    public static ParagraphStyle[] newUnpaddedArray(Class<ParagraphStyle> clazz, int minLen) {
+//        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);
+        return new ParagraphStyle[minLen];
+    }
+
+    public static int[] newUnpaddedArray1(int minLen) {
+//        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);
+        return new int[minLen];
+    }
+
+    public static Object[] newUnpaddedObjectArray(int minLen) {
+//        return (Object[])VMRuntime.getRuntime().newUnpaddedArray(Object.class, minLen);
+        return new Object[minLen];
+    }
+
+    public static <T> T[] removeEmptySpans(T[] spans, Spanned spanned, Class<T> klass) {
+        T[] copy = null;
+        int count = 0;
+
+        for (int i = 0; i < spans.length; i++) {
+            final T span = spans[i];
+            final int start = spanned.getSpanStart(span);
+            final int end = spanned.getSpanEnd(span);
+
+            if (start == end) {
+                if (copy == null) {
+                    copy = (T[]) Array.newInstance(klass, spans.length - 1);
+                    System.arraycopy(spans, 0, copy, 0, i);
+                    count = i;
+                }
+            } else {
+                if (copy != null) {
+                    copy[count] = span;
+                    count++;
+                }
+            }
+        }
+
+        if (copy != null) {
+            T[] result = (T[]) Array.newInstance(klass, count);
+            System.arraycopy(copy, 0, result, 0, count);
+            return result;
+        } else {
+            return spans;
+        }
+    }
+
 
     /**
      * Checks if the beginnings of two byte arrays are equal.

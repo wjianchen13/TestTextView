@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.testtextview.test1.Test1Activity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,9 +17,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv_test);
 //        tv.setText("akdkfakjsd");
+
     }
     
     public void onTest(View v) {
         startActivity(new Intent(this, OtherActivity.class));
     }
+
+    public void onTest1(View v) {
+        startActivity(new Intent(this, Test1Activity.class));
+    }
+    
 }
