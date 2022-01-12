@@ -7,7 +7,6 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
-import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.Toast;
@@ -17,9 +16,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.testtextview.textview.LinkMovementMethod;
 import com.example.testtextview.textview.TextView;
-
-import static android.text.style.DynamicDrawableSpan.ALIGN_BOTTOM;
-import static android.text.style.DynamicDrawableSpan.ALIGN_CENTER;
 
 public class OtherActivity extends AppCompatActivity implements View.OnClickListener {
 

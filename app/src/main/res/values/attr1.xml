@@ -10,4 +10,13 @@
         <attr name="arcProgress" format="float" />
         <attr name="arcTitleNumber" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ColorView">
+        <attr name="type1" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawTextView">
+        <attr name="drawTextColor" format="color" />
+        <attr name="drawTextSize" format="dimension" />
+    </declare-styleable>
 </resources>

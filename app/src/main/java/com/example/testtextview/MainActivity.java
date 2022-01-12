@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.testtextview.test.DrawTextActivity;
 import com.example.testtextview.test1.Test1Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,5 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public void onTest1(View v) {
         startActivity(new Intent(this, Test1Activity.class));
     }
-    
+
+    public void onTest2(View v) {
+        startActivity(new Intent(this, DrawTextActivity.class));
+    }
 }
