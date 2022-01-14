@@ -3,8 +3,6 @@ package com.example.testtextview;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
 import android.text.style.ImageSpan;
@@ -14,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.testtextview.string.SpannableString;
+import com.example.testtextview.string.SpannableStringBuilder;
 import com.example.testtextview.textview.LinkMovementMethod;
 import com.example.testtextview.textview.TextView;
 
@@ -35,11 +35,11 @@ public class OtherActivity extends AppCompatActivity implements View.OnClickList
         String tip1 = "test1";
         String tip2 = "test2";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        SpannableString spanStr1 = new SpannableString(tip1);
-        spanStr1.setSpan(createDinoNolineClickableSpan(true, ContextCompat.getColor(this, R.color.colorPrimaryDark), this)
-                , spanStr1.length(), spanStr1.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableStringBuilder.append(spanStr1);
-        spannableStringBuilder.append(" ");
+//        SpannableString spanStr1 = new SpannableString(tip1);
+//        spanStr1.setSpan(createDinoNolineClickableSpan(true, ContextCompat.getColor(this, R.color.colorPrimaryDark), this)
+//                , spanStr1.length(), spanStr1.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        spannableStringBuilder.append(spanStr1);
+//        spannableStringBuilder.append(" ");
         SpannableString spanStr2 = new SpannableString(tip2);
         spanStr2.setSpan(createDinoNolineClickableSpan(true, Color.parseColor("#FF2A7A"), this)
                 , 0, spanStr2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

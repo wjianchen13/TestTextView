@@ -6598,11 +6598,11 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     
     @Override
     protected void onDraw(Canvas canvas) {
-        restartMarqueeIfNeeded();
+        restartMarqueeIfNeeded(); // 1.第一句restartMarqueeIfNeeded()绘制字幕滚动
 
         // Draw the background for this view
         super.onDraw(canvas);
-
+        // 2. compoundDrawable的绘制，也就是drawableTop/Bottom/Left/Right属性。
         final int compoundPaddingLeft = getCompoundPaddingLeft();
         final int compoundPaddingTop = getCompoundPaddingTop();
         final int compoundPaddingRight = getCompoundPaddingRight();

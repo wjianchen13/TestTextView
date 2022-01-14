@@ -67,6 +67,12 @@ public class ArrayUtils {
         return new ParagraphStyle[minLen];
     }
 
+
+    public static ParagraphStyle[] newUnpaddedArray(int minLen) {
+//        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);
+        return new ParagraphStyle[minLen];
+    }
+
     public static int[] newUnpaddedArray1(int minLen) {
 //        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);
         return new int[minLen];

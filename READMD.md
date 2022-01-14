@@ -1,5 +1,7 @@
-#从源码复制出来的TextView源码版本是26
+#从源码复制出来的TextView源码版本是26 android 8.0
 
+# 源码查看地址
+http://androidxref.com/
 
 
 *遇到问题

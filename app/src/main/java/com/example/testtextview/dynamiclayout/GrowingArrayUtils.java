@@ -55,4 +55,18 @@ public final class GrowingArrayUtils {
 
     // Uninstantiable
     private GrowingArrayUtils() {}
+
+    public static <T> Object[] append2(Object[] array, int currentSize, Object element) {
+        assert currentSize <= array.length;
+
+        if (currentSize + 1 > array.length) {
+            @SuppressWarnings("unchecked")
+            Object[] newArray = ArrayUtils.newUnpaddedObjectArray(
+                   /* (Class<T>) array.getClass().getComponentType(),*/ growSize(currentSize));
+            System.arraycopy(array, 0, newArray, 0, currentSize);
+            array = newArray;
+        }
+        array[currentSize] = element;
+        return array;
+    }
 }
