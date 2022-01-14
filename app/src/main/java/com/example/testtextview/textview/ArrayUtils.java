@@ -23,6 +23,8 @@ import android.util.ArraySet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.testtextview.dynamiclayout.Layout;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +69,10 @@ public class ArrayUtils {
         return new ParagraphStyle[minLen];
     }
 
+    public static Layout.Directions[] newUnpaddedArray2(Class<Layout.Directions> clazz, int minLen) {
+//        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);
+        return new Layout.Directions[minLen];
+    }
 
     public static ParagraphStyle[] newUnpaddedArray(int minLen) {
 //        return (T[])VMRuntime.getRuntime().newUnpaddedArray(clazz, minLen);

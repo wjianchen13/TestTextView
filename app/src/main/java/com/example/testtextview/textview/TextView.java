@@ -31,13 +31,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.text.BoringLayout;
-import android.text.DynamicLayout;
 import android.text.Editable;
 import android.text.GetChars;
 import android.text.InputFilter;
-import android.text.InputType;
-import android.text.Layout;
+
 import android.text.ParcelableSpan;
 import android.text.Selection;
 import android.text.SpanWatcher;
@@ -45,7 +42,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
-import android.text.StaticLayout;
 import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
@@ -129,6 +125,10 @@ import androidx.annotation.XmlRes;
 import androidx.core.graphics.Insets;
 
 import com.example.testtextview.R;
+import com.example.testtextview.dynamiclayout.BoringLayout;
+import com.example.testtextview.dynamiclayout.DynamicLayout;
+import com.example.testtextview.dynamiclayout.Layout;
+import com.example.testtextview.dynamiclayout.StaticLayout;
 
 import org.xmlpull.v1.XmlPullParserException;
 

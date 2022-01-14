@@ -1,6 +1,5 @@
 package com.example.testtextview.textview;
 
-import android.text.Layout;
 import android.text.NoCopySpan;
 import android.text.Selection;
 import android.text.Spannable;
@@ -8,6 +7,8 @@ import android.text.style.ClickableSpan;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.example.testtextview.dynamiclayout.Layout;
 
 public class LinkMovementMethod extends ScrollingMovementMethod {
     private static final int CLICK = 1;

@@ -61,7 +61,7 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
         mGapStart = srclen; // 数据出去本次存储的数据没用的空间开始位置
         mGapLength = mText.length - srclen; // mText数据剩余没用空间长度
 
-        TextUtils.getChars(text, start, end, mText, 0); // 把text的内容存入到mText数组
+        MyTextUtils.getChars(text, start, end, mText, 0); // 把text的内容存入到mText数组
 
         mSpanCount = 0;
         mSpanInsertCount = 0;
@@ -392,7 +392,7 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
         if (mGapLength < 1)
             new Exception("mGapLength < 1").printStackTrace();
 
-        TextUtils.getChars(cs, csStart, csEnd, mText, start);
+        MyTextUtils.getChars(cs, csStart, csEnd, mText, start);
 
         if (replacedLength > 0) { // no need for span fixup on pure insertion
             // TODO potential optimization: only update bounds on intersecting spans
@@ -1417,11 +1417,11 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
         } else if (start >= mGapStart) {
             c.drawText(mText, start + mGapLength, end - start, x, y, p);
         } else {
-            char[] buf = TextUtils.obtain(end - start);
+            char[] buf = MyTextUtils.obtain(end - start);
 
             getChars(start, end, buf, 0);
             c.drawText(buf, 0, end - start, x, y, p);
-            TextUtils.recycle(buf);
+            MyTextUtils.recycle(buf);
         }
     }
 
@@ -1443,10 +1443,10 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
             c.drawTextRun(mText, start + mGapLength, len, contextStart + mGapLength,
                     contextLen, x, y, isRtl, p);
         } else {
-            char[] buf = TextUtils.obtain(contextLen);
+            char[] buf = MyTextUtils.obtain(contextLen);
             getChars(contextStart, contextEnd, buf, 0);
             c.drawTextRun(buf, start - contextStart, len, 0, contextLen, x, y, isRtl, p);
-            TextUtils.recycle(buf);
+            MyTextUtils.recycle(buf);
         }
     }
 
@@ -1464,11 +1464,11 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
         } else if (start >= mGapStart) {
             ret = p.measureText(mText, start + mGapLength, end - start);
         } else {
-            char[] buf = TextUtils.obtain(end - start);
+            char[] buf = MyTextUtils.obtain(end - start);
 
             getChars(start, end, buf, 0);
             ret = p.measureText(buf, 0, end - start);
-            TextUtils.recycle(buf);
+            MyTextUtils.recycle(buf);
         }
 
         return ret;
@@ -1488,11 +1488,11 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
         } else if (start >= mGapStart) {
             ret = p.getTextWidths(mText, start + mGapLength, end - start, widths);
         } else {
-            char[] buf = TextUtils.obtain(end - start);
+            char[] buf = MyTextUtils.obtain(end - start);
 
             getChars(start, end, buf, 0);
             ret = p.getTextWidths(buf, 0, end - start, widths);
-            TextUtils.recycle(buf);
+            MyTextUtils.recycle(buf);
         }
 
         return ret;
@@ -1518,11 +1518,11 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
             ret = p.getTextRunAdvances(mText, start + mGapLength, len,
                     contextStart + mGapLength, contextLen, isRtl, advances, advancesPos);
         } else {
-            char[] buf = TextUtils.obtain(contextLen);
+            char[] buf = MyTextUtils.obtain(contextLen);
             getChars(contextStart, contextEnd, buf, 0);
             ret = p.getTextRunAdvances(buf, start - contextStart, len,
                     0, contextLen, isRtl, advances, advancesPos);
-            TextUtils.recycle(buf);
+            MyTextUtils.recycle(buf);
         }
 
         return ret;

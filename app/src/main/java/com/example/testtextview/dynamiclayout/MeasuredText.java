@@ -19,7 +19,6 @@ package com.example.testtextview.dynamiclayout;
 import android.graphics.Paint;
 import com.example.testtextview.dynamiclayout.Layout;
 import android.text.Spanned;
-import android.text.StaticLayout;
 import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;

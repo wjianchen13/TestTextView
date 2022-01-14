@@ -1,12 +1,13 @@
 package com.example.testtextview.textview;
 
-import android.text.Layout;
 import android.text.NoCopySpan;
 import android.text.Spannable;
 import android.text.method.MetaKeyKeyListener;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+
+import com.example.testtextview.dynamiclayout.Layout;
 
 public class Touch {
     private Touch() { }

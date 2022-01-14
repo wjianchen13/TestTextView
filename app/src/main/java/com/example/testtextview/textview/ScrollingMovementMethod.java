@@ -1,9 +1,10 @@
 package com.example.testtextview.textview;
 
-import android.text.Layout;
 import android.text.Spannable;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.example.testtextview.dynamiclayout.Layout;
 
 public class ScrollingMovementMethod extends BaseMovementMethod implements MovementMethod {
     @Override

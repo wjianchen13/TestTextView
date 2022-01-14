@@ -4,7 +4,7 @@ import android.text.GetChars;
 
 import com.example.testtextview.textview.ArrayUtils;
 
-public class TextUtils {
+public class MyTextUtils {
 
     private static Object sLock = new Object();
 
@@ -12,7 +12,7 @@ public class TextUtils {
 
     private static String[] EMPTY_STRING_ARRAY = new String[]{};
 
-    /* package */ static char[] obtain(int len) {
+    /* package */ public static char[] obtain(int len) {
         char[] buf;
 
         synchronized (sLock) {
@@ -26,7 +26,19 @@ public class TextUtils {
         return buf;
     }
 
-    /* package */ static void recycle(char[] temp) {
+    public static boolean couldAffectRtl(char c) {
+        return (0x0590 <= c && c <= 0x08FF) ||  // RTL scripts
+                c == 0x200E ||  // Bidi format character
+                c == 0x200F ||  // Bidi format character
+                (0x202A <= c && c <= 0x202E) ||  // Bidi format characters
+                (0x2066 <= c && c <= 0x2069) ||  // Bidi format characters
+                (0xD800 <= c && c <= 0xDFFF) ||  // Surrogate pairs
+                (0xFB1D <= c && c <= 0xFDFF) ||  // Hebrew and Arabic presentation forms
+                (0xFE70 <= c && c <= 0xFEFE);  // Arabic presentation forms
+    }
+
+
+    /* package */ public static void recycle(char[] temp) {
         if (temp.length > 1000)
             return;
 

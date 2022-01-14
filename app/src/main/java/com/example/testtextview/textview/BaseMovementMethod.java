@@ -1,11 +1,12 @@
 package com.example.testtextview.textview;
 
-import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.MetaKeyKeyListener;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+
+import com.example.testtextview.dynamiclayout.Layout;
 
 public class BaseMovementMethod implements MovementMethod {
     @Override
