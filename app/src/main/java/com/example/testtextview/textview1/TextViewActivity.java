@@ -1,30 +1,32 @@
-package com.example.testtextview;
+package com.example.testtextview.textview1;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
-import android.text.Spanned;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ImageSpan;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.testtextview.string.SpannableString;
-import com.example.testtextview.string.SpannableStringBuilder;
-import com.example.testtextview.textview.LinkMovementMethod;
-import com.example.testtextview.textview.TextView;
+import com.example.testtextview.MyIm;
+import com.example.testtextview.NoLineClickDinoSpan;
+import com.example.testtextview.R;
 
-public class OtherActivity extends AppCompatActivity implements View.OnClickListener {
+public class TextViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tv;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_other);
+        setContentView(R.layout.activity_textview);
         tv = findViewById(R.id.tv_test);
         tv.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
         tv.setMovementMethod(LinkMovementMethod.getInstance());
@@ -42,7 +44,7 @@ public class OtherActivity extends AppCompatActivity implements View.OnClickList
 //        spannableStringBuilder.append(" ");
         SpannableString spanStr2 = new SpannableString(tip2);
         spanStr2.setSpan(createDinoNolineClickableSpan(true, Color.parseColor("#FF2A7A"), this)
-                , 0, 2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                , 0, 1, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         spannableStringBuilder.append(spanStr2);
         ImageSpan imageSpan = new MyIm(this, R.drawable.ic_launcher);
 //        spannableStringBuilder.setSpan(imageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_INCLUSIVE);

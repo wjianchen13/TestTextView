@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.testtextview.test.DrawTextActivity;
 import com.example.testtextview.test1.Test1Activity;
+import com.example.testtextview.textview1.TextViewActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv_test);
 //        tv.setText("akdkfakjsd");
+        
+    }
 
+    public void onTextView(View v) {
+        startActivity(new Intent(this, TextViewActivity.class));
     }
     
     public void onTest(View v) {
