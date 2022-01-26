@@ -14,6 +14,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
@@ -664,6 +665,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     public TextView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, R.attr.textViewStyle);
         this.mContext = context;
+        initPaint();
     }
 
     public TextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -6081,8 +6083,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
 
         if (gravity != Gravity.TOP) {
-            int boxht = getBoxHeight(l);
-            int textht = l.getHeight();
+            int boxht = getBoxHeight(l); // 整个TextView的区域宽度
+            int textht = l.getHeight(); // 文字区域的高度，包括图片
 
             if (textht < boxht) {
                 if (gravity == Gravity.BOTTOM) {
@@ -6595,6 +6597,16 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     public boolean isLayoutRtl() {
         return (getLayoutDirection() == LAYOUT_DIRECTION_RTL);
     }
+
+    // 1.创建一个画笔
+    private Paint mPaint = new Paint();
+
+    // 2.初始化画笔
+    private void initPaint() {
+        mPaint.setColor(Color.YELLOW);       //设置画笔颜色
+        mPaint.setStyle(Paint.Style.FILL);  //设置画笔模式为填充
+        mPaint.setStrokeWidth(10f);         //设置画笔宽度为10px
+    }
     
     @Override
     protected void onDraw(Canvas canvas) {
@@ -6746,7 +6758,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
 
         final int cursorOffsetVertical = voffsetCursor - voffsetText;
-
+        canvas.drawRect(0,0,100,100, mPaint);
         Path highlight = getUpdatedHighlightPath();
         /*if (mEditor != null) {
             mEditor.onDraw(canvas, layout, highlight, mHighlightPaint, cursorOffsetVertical);
@@ -6758,6 +6770,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             final float dx = mMarquee.getGhostOffset();
             canvas.translate(layout.getParagraphDirection(0) * dx, 0.0f);
             layout.draw(canvas, highlight, mHighlightPaint, cursorOffsetVertical);
+            
         }
 
         canvas.restore();

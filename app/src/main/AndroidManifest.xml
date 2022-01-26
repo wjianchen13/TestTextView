@@ -20,6 +20,7 @@
         <activity android:name=".test1.Test1Activity" />
         <activity android:name=".test.DrawTextActivity" />
         <activity android:name=".textview1.TextViewActivity" />
+        <activity android:name=".normal.NormalActivity" />
         
     </application>
 

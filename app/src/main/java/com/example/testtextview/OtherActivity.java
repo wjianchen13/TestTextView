@@ -42,10 +42,10 @@ public class OtherActivity extends AppCompatActivity implements View.OnClickList
 //        spannableStringBuilder.append(" ");
         SpannableString spanStr2 = new SpannableString(tip2);
         spanStr2.setSpan(createDinoNolineClickableSpan(true, Color.parseColor("#FF2A7A"), this)
-                , 0, 2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                , 0, spanStr2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(spanStr2);
         ImageSpan imageSpan = new MyIm(this, R.drawable.ic_launcher);
-//        spannableStringBuilder.setSpan(imageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        spannableStringBuilder.setSpan(imageSpan, 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tv.setText(spannableStringBuilder);
     }
 
