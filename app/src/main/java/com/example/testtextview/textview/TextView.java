@@ -130,6 +130,7 @@ import com.example.testtextview.dynamiclayout.BoringLayout;
 import com.example.testtextview.dynamiclayout.DynamicLayout;
 import com.example.testtextview.dynamiclayout.Layout;
 import com.example.testtextview.dynamiclayout.StaticLayout;
+import com.example.testtextview.string.SpannableString;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -5167,7 +5168,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 //            InputMethodManager imm = InputMethodManager.peekInstance();
 //            if (imm != null) imm.restartInput(this);
         } else if (type == TextView.BufferType.SPANNABLE || mMovement != null) {
-            text = mSpannableFactory.newSpannable(text);
+//            text = mSpannableFactory.newSpannable(text);
+            text = new SpannableString(text);
         } else if (!(text instanceof CharWrapper)) {
             text = TextUtils.stringOrSpannedString(text);
         }
