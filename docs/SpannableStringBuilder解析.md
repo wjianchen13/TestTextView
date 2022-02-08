@@ -35,9 +35,12 @@ change(start, end, tb, tbstart, tbend);
 1.检查越界条件
 2.检查设置的对象之前是否 已经设置过，在这里查找mIndexOfSpan 是否存在之前已经设置过的对象
 3.接着设置一下变量
+mSpanCount span数量
+mSpanInsertCount 
 mSpans span对象
 mSpanStarts span开始位置
 mSpanEnds span结束位置
+mSpanMax = EmptyArray.INT;
 mSpanFlags span的标志
 mSpanOrder span插入顺序
 4.最后会返回到change()方法，调用restoreInvariants()，实例化mIndexOfSpan，并把没有加入的span加入到mIndexOfSpan

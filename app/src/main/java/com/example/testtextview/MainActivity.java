@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.testtextview.normal.NormalActivity;
+import com.example.testtextview.source.SourceActivity;
 import com.example.testtextview.test.DrawTextActivity;
 import com.example.testtextview.test1.Test1Activity;
 import com.example.testtextview.textview1.TextViewActivity;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
     
     public void onTest(View v) {
-        startActivity(new Intent(this, OtherActivity.class));
+        startActivity(new Intent(this, SourceActivity.class));
     }
 
     public void onTest1(View v) {

@@ -1,4 +1,4 @@
-package com.example.testtextview;
+package com.example.testtextview.source;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,12 +12,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.testtextview.R;
 import com.example.testtextview.string.SpannableString;
 import com.example.testtextview.string.SpannableStringBuilder;
 import com.example.testtextview.textview.LinkMovementMethod;
 import com.example.testtextview.textview.TextView;
 
-public class OtherActivity extends AppCompatActivity implements View.OnClickListener {
+public class SourceActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tv;
     

@@ -23,8 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.example.testtextview.MyIm;
-import com.example.testtextview.NoLineClickDinoSpan;
+import com.example.testtextview.source.MyIm;
+import com.example.testtextview.source.NoLineClickDinoSpan;
 import com.example.testtextview.R;
 import com.example.testtextview.dynamiclayout.DynamicLayout;
 import com.example.testtextview.dynamiclayout.Layout;

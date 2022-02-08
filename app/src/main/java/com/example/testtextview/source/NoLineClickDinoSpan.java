@@ -1,5 +1,5 @@
 
-package com.example.testtextview;
+package com.example.testtextview.source;
 
 import android.content.Context;
 import android.content.res.Resources;

@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OtherActivity" />
+        <activity android:name=".source.SourceActivity" />
         <activity android:name=".test1.Test1Activity" />
         <activity android:name=".test.DrawTextActivity" />
         <activity android:name=".textview1.TextViewActivity" />

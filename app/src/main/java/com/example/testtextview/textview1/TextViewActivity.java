@@ -15,8 +15,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.testtextview.MyIm;
-import com.example.testtextview.NoLineClickDinoSpan;
+import com.example.testtextview.source.MyIm;
+import com.example.testtextview.source.NoLineClickDinoSpan;
 import com.example.testtextview.R;
 
 public class TextViewActivity extends AppCompatActivity implements View.OnClickListener {

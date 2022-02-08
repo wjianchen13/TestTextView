@@ -37,7 +37,11 @@ mSpanCount++;
 ```
 span对象直接存在mSpan中，start，end，flag存在以mSpanCount*3的开始位置中。
 
-
+这里主要的数据结构如下
+    private String mText; // 保存String原始文本
+    private Object[] mSpans; // 保存Span对象
+    private int[] mSpanData; // Span的数据，包括start，end和flag，第二个Span开始位置在mSpanCount * COLUMNS + START
+    private int mSpanCount; // Span的数量
 
 
 

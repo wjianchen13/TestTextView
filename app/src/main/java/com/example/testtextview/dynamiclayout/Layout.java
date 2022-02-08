@@ -1256,7 +1256,7 @@ public abstract class Layout {
         int high = getLineCount(), low = -1, guess;
 
         while (high - low > 1) {
-            guess = (high + low) / 2;
+            guess = (high + low) / 2; // 二分查找，取一半
 
             if (getLineTop(guess) > vertical)
                 high = guess;
@@ -1312,10 +1312,11 @@ public abstract class Layout {
      *
      * @hide
      */
+    // 根据传入的行数和X坐标，找到Span对应的开始位置
     public int getOffsetForHorizontal(int line, float horiz, boolean primary) {
         // TODO: use Paint.getOffsetForAdvance to avoid binary search
-        final int lineEndOffset = getLineEnd(line);
-        final int lineStartOffset = getLineStart(line);
+        final int lineEndOffset = getLineEnd(line); // 指定行最后一个字符后的文本偏移量
+        final int lineStartOffset = getLineStart(line); // 返回指定行开头的文本偏移量
 
         Directions dirs = getLineDirections(line);
 

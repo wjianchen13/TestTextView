@@ -696,7 +696,7 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
                     + " (" + start + " follows " + charAt(start - 1) + ")");
         }
 
-        int flagsEnd = flags & END_MASK;
+        int flagsEnd = flags & END_MASK; 
         if (isInvalidParagraph(end, flagsEnd)) {
             if (!enforceParagraph) {
                 // do not set the span
@@ -758,7 +758,7 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
                 return;
             }
         }
-
+        // 这里是把新的span添加到数组，不够的话进行扩容，并且把之前的span复制过去，然后再添加当前span
         mSpans = GrowingArrayUtils.append2(mSpans, mSpanCount, what);
         mSpanStarts = GrowingArrayUtils.append1(mSpanStarts, mSpanCount, start);
         mSpanEnds = GrowingArrayUtils.append1(mSpanEnds, mSpanCount, end);
@@ -1773,7 +1773,7 @@ public class SpannableStringBuilder implements CharSequence, GetChars, Spannable
     private int[] mSpanStarts;
     private int[] mSpanEnds;
     private int[] mSpanMax;  // see calcMax() for an explanation of what this array stores
-    private int[] mSpanFlags;
+    public int[] mSpanFlags;
     private int[] mSpanOrder;  // store the order of span insertion
 
     /**

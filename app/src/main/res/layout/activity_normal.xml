@@ -8,8 +8,8 @@
 
     <com.example.testtextview.normal.NormalView
         android:id="@+id/tv_test"
-        app:layout_width="400dp"
-        app:layout_height="400dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         app:text="Hello World!"
         android:background="#ff00ff00"
         app:gravity="center"
