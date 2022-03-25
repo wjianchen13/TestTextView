@@ -292,6 +292,15 @@ import java.lang.reflect.Array;
         return 0; 
     }
 
+    /**
+     * 根据传入的kind，返回对应Span的数组
+     * Span的类型有: MetricAffectingSpan CharacterStyle ReplacementSpan
+     * @param queryStart
+     * @param queryEnd
+     * @param kind
+     * @param <T>
+     * @return
+     */
     public <T> T[] getSpans(int queryStart, int queryEnd, Class<T> kind) {
         int count = 0;
 

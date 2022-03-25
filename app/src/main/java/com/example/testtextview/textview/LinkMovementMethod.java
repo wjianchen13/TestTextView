@@ -186,8 +186,8 @@ public class LinkMovementMethod extends ScrollingMovementMethod {
             y += widget.getScrollY();
 
             Layout layout = widget.getLayout();
-            int line = layout.getLineForVertical(y);
-            int off = layout.getOffsetForHorizontal(line, x);
+            int line = layout.getLineForVertical(y); // 得到某点在垂直方向上的行数值
+            int off = layout.getOffsetForHorizontal(line, x); // 得到触摸点在某一行水平方向上的偏移量
 
             ClickableSpan[] links = buffer.getSpans(off, off, ClickableSpan.class);
 

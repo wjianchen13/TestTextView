@@ -969,11 +969,16 @@ public abstract class Layout {
         return packRangeInLong(0, getLineEnd(line));
     }
 
+    /**
+     * 主要的是否尾随前一个（不知道啥意思）
+     * @param offset
+     * @return
+     */
     private boolean primaryIsTrailingPrevious(int offset) {
-        int line = getLineForOffset(offset);
-        int lineStart = getLineStart(line);
-        int lineEnd = getLineEnd(line);
-        int[] runs = getLineDirections(line).mDirections;
+        int line = getLineForOffset(offset);  // 通过偏移获取某一行
+        int lineStart = getLineStart(line); // 获取某行开始位置
+        int lineEnd = getLineEnd(line); // 获取某行结束位置
+        int[] runs = getLineDirections(line).mDirections; // 获取这一行的方向信息数组
 
         int levelAt = -1;
         for (int i = 0; i < runs.length; i += 2) {
@@ -1022,6 +1027,7 @@ public abstract class Layout {
      * Get the primary horizontal position for the specified text offset.
      * This is the location where a new character would be inserted in
      * the paragraph's primary direction.
+     * 获取指定文本的主要水平位置，这是一个新字符将要插入到这一段主要方向的位置
      */
     public float getPrimaryHorizontal(int offset) {
         return getPrimaryHorizontal(offset, false /* not clamped */);
@@ -1066,6 +1072,14 @@ public abstract class Layout {
         return getHorizontal(offset, trailing, line, clamped);
     }
 
+    /**
+     * 
+     * @param offset
+     * @param trailing 是否跟随前一个 的offset
+     * @param line
+     * @param clamped 是否固定宽度
+     * @return
+     */
     private float getHorizontal(int offset, boolean trailing, int line, boolean clamped) {
         int start = getLineStart(line);
         int end = getLineEnd(line);
@@ -1255,7 +1269,7 @@ public abstract class Layout {
     public int getLineForVertical(int vertical) {
         int high = getLineCount(), low = -1, guess;
 
-        while (high - low > 1) {
+         while (high - low > 1) {
             guess = (high + low) / 2; // 二分查找，取一半
 
             if (getLineTop(guess) > vertical)
@@ -1297,6 +1311,7 @@ public abstract class Layout {
     /**
      * Get the character offset on the specified line whose position is
      * closest to the specified horizontal position.
+     * 获取指定行位置最接近指定水平位置字符偏移
      */
     public int getOffsetForHorizontal(int line, float horiz) {
         return getOffsetForHorizontal(line, horiz, true);
@@ -1318,7 +1333,7 @@ public abstract class Layout {
         final int lineEndOffset = getLineEnd(line); // 指定行最后一个字符后的文本偏移量
         final int lineStartOffset = getLineStart(line); // 返回指定行开头的文本偏移量
 
-        Directions dirs = getLineDirections(line);
+        Directions dirs = getLineDirections(line); // 获取一行文字的方向信息
 
         TextLine tl = TextLine.obtain();
         // XXX: we don't care about tabs as we just use TextLine#getOffsetToLeftRightOf here.
@@ -1326,7 +1341,7 @@ public abstract class Layout {
                 false, null);
 
         final int max;
-        if (line == getLineCount() - 1) {
+        if (line == getLineCount() - 1) { // 如果是最后一行，只有一行也会走这里
             max = lineEndOffset;
         } else {
             max = tl.getOffsetToLeftRightOf(lineEndOffset - lineStartOffset,
@@ -2070,6 +2085,7 @@ public abstract class Layout {
     /**
      * Stores information about bidirectional (left-to-right or right-to-left)
      * text within the layout of a line.
+     * 存储在Layout中一行文本的方向信息（左-右，右-左）
      */
     public static class Directions {
         // Directions represents directional runs within a line of text.

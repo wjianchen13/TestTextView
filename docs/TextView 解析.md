@@ -1,5 +1,18 @@
 # TextView 解析
 1.onMeasure()
+解释下什么叫作boring:
+boring就是指布局所用的文本里面不包含任何Span，所有的文本方向都是从左到右的布局，并且仅需一行就能显示完全的布局
+
+在onMeasure()中，如果包含了Span，最终会调用到makeNewLayout()方法进行Layout的初始化
+makeNewLayout()方法会调用makeSingleLayout()方法，在makeSingleLayout()方法中，会判断mText是否Spannable类型，如果
+是，直接初始化DynamicLayout。初始化完成之后，就可以调用DynamicLayout的方法，获取mText对应的一些属性，比如：
+result.getWidth(), result.getLineBottom(),result.getLineCount()等等
+
+
+
+
+
+
 
 2.onLayout()
 
@@ -26,6 +39,38 @@ layout.draw(canvas, highlight, mHighlightPaint, cursorOffsetVertical);
     }
 ```
 先调用Layout的drawBackground()方法绘制背景，然后再调用Layout的drawText()方法绘制文字
+ImageSpan替换的完整调用链
+TextView:onDraw()->Layout:draw()->Layout:drawText()->TextLine:draw()->TextLine:drawRun()-》TextLine:handleRun()
+->TextLine:handleReplacement()->ReplacementSpan:draw()
+
+
+4.onTouchEvent()
+TextView onTouchEvent()方法最终调用LinkMovementMethod onTouchEvent()方法。
+在该方法中，首先获取对应的DynamicLayout，然后获取行数和水平偏移，获取对应的ClickableSpan，调用ClickableSpan的onClick()方法
+```Java
+Layout layout = widget.getLayout();
+int line = layout.getLineForVertical(y);
+int off = layout.getOffsetForHorizontal(line, x);
+
+ClickableSpan[] links = buffer.getSpans(off, off, ClickableSpan.class);
+if (links.length != 0) {
+    if (action == MotionEvent.ACTION_UP) {
+        links[0].onClick(widget);
+    } else if (action == MotionEvent.ACTION_DOWN) {
+        Selection.setSelection(buffer,
+                buffer.getSpanStart(links[0]),
+                buffer.getSpanEnd(links[0]));
+    }
+    return true;
+} else {
+    Selection.removeSelection(buffer);
+}
+```
+
+
+
+
+
 
 # 例子
 使用SpannableStringBuilder

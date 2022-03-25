@@ -34,7 +34,7 @@ public class SourceActivity extends AppCompatActivity implements View.OnClickLis
     
     private void test() {
         String tip1 = "test1";
-        String tip2 = "test2";
+        String tip2 = "test2test2test2test2test2test2";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
 //        SpannableString spanStr1 = new SpannableString(tip1);
 //        spanStr1.setSpan(createDinoNolineClickableSpan(true, ContextCompat.getColor(this, R.color.colorPrimaryDark), this)
@@ -45,8 +45,8 @@ public class SourceActivity extends AppCompatActivity implements View.OnClickLis
         spanStr2.setSpan(createDinoNolineClickableSpan(true, Color.parseColor("#FF2A7A"), this)
                 , 0, spanStr2.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableStringBuilder.append(spanStr2);
-        ImageSpan imageSpan = new MyIm(this, R.drawable.ic_launcher);
-        spannableStringBuilder.setSpan(imageSpan, 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        ImageSpan imageSpan = new MyIm(this, R.drawable.ic_launcher);
+//        spannableStringBuilder.setSpan(imageSpan, 0, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         tv.setText(spannableStringBuilder);
     }
 
